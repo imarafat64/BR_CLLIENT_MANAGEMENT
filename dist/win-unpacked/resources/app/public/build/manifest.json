@@ -1,0 +1,27 @@
+{
+  "resources/css/dashboard.css": {
+    "file": "assets/dashboard-C4k3LXF-.css",
+    "src": "resources/css/dashboard.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Dy78saiN.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard.js": {
+    "file": "assets/dashboard-CewoGrF_.js",
+    "name": "dashboard",
+    "src": "resources/js/dashboard.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-B_c9eOtX.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}

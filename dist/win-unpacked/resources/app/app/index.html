@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Information Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SVG Sprite Definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-chevrons-left" viewBox="0 0 24 24">
+            <path d="m11 17-5-5 5-5" />
+            <path d="m18 17-5-5 5-5" />
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+        </symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </symbol>
+        <symbol id="icon-dollar-sign" viewBox="0 0 24 24">
+            <line x1="12" x2="12" y1="2" y2="22" />
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </symbol>
+        <symbol id="icon-check-circle" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="m9 12 2 2 4-4" />
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+        </symbol>
+        <symbol id="icon-alert-circle" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" x2="12" y1="8" y2="12" />
+            <line x1="12" x2="12.01" y1="16" y2="16" />
+        </symbol>
+        <symbol id="icon-file-text" viewBox="0 0 24 24">
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            <path d="M10 9H8" />
+            <path d="M16 13H8" />
+            <path d="M16 17H8" />
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24">
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+        </symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" x2="12" y1="15" y2="3" />
+        </symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24">
+            <path
+                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+            <circle cx="12" cy="12" r="3" />
+        </symbol>
+        <symbol id="icon-chevrons-up-down" viewBox="0 0 24 24">
+            <path d="m7 15 5 5 5-5" />
+            <path d="m7 9 5-5 5 5" />
+        </symbol>
+        <symbol id="icon-eye" viewBox="0 0 24 24">
+            <path
+                d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z" />
+            <circle cx="12" cy="12" r="3" />
+        </symbol>
+        <symbol id="icon-pencil" viewBox="0 0 24 24">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+        </symbol>
+        <symbol id="icon-trash" viewBox="0 0 24 24">
+            <path d="M3 6h18" />
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+            <line x1="10" x2="10" y1="11" y2="17" />
+            <line x1="14" x2="14" y1="11" y2="17" />
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24">
+            <path d="M20 6 9 17l-5-5" />
+        </symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+            <path d="m15 18-6-6 6-6" />
+        </symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+            <path d="m9 18 6-6-6-6" />
+        </symbol>
+    </svg>
+
+    <header class="navbar">
+        <div class="nav-left">
+
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" aria-label="Toggle Theme"><svg class="icon icon-lg">
+                    <use href="#icon-moon"></use>
+                </svg></button>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span class="user-name">Izzaky Setiawan</span>
+                    <span class="user-role">Administrator</span>
+                </div>
+                <div class="avatar">IS</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section class="financial-grid">
+            <div class="fin-card">
+                <div class="card-icon-box icon-total">
+                    <svg class="icon icon-xl">
+                        <use href="#icon-dollar-sign"></use>
+                    </svg>
+                </div>
+                <div class="card-details">
+                    <span class="card-label">Total Revenue</span>
+                    <span class="card-value">$4,780</span>
+                </div>
+            </div>
+            <div class="fin-card">
+                <div class="card-icon-box icon-collected">
+                    <svg class="icon icon-xl">
+                        <use href="#icon-check-circle"></use>
+                    </svg>
+                </div>
+                <div class="card-details">
+                    <span class="card-label">Collected</span>
+                    <span class="card-value">$1,000</span>
+                    <span class="card-subtext sub-success">Paid transactions</span>
+                </div>
+            </div>
+            <div class="fin-card">
+                <div class="card-icon-box icon-pending">
+                    <svg class="icon icon-xl">
+                        <use href="#icon-clock"></use>
+                    </svg>
+                </div>
+                <div class="card-details">
+                    <span class="card-label">Pending</span>
+                    <span class="card-value">$3,500</span>
+                    <span class="card-subtext sub-warning">Awaiting payment</span>
+                </div>
+            </div>
+            <div class="fin-card">
+                <div class="card-icon-box icon-outstanding">
+                    <svg class="icon icon-xl">
+                        <use href="#icon-alert-circle"></use>
+                    </svg>
+                </div>
+                <div class="card-details">
+                    <span class="card-label">Outstanding</span>
+                    <span class="card-value">$280</span>
+                    <span class="card-subtext sub-danger">Overdue payments</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-header">
+            <div class="title-group">
+                <span class="label">Manage</span>
+                <h1>Educational Information</h1>
+            </div>
+            <div class="action-buttons">
+                <!-- <button class="btn btn-secondary"><svg class="icon">
+                        <use href="#icon-file-text"></use>
+                    </svg> Import CSV</button> -->
+                <button class="btn btn-primary" id="add-alumni-btn"><svg class="icon">
+                        <use href="#icon-plus"></use>
+                    </svg> Add Alumni</button>
+            </div>
+        </section>
+
+        <div class="controls-bar">
+            <div class="search-box-group">
+                <div class="table-search">
+                    <svg class="icon table-search-icon">
+                        <use href="#icon-search"></use>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search by any word or number...">
+                </div>
+                <button class="btn btn-primary" id="search-btn">
+                    <svg class="icon"><use href="#icon-search"></use></svg>
+                    <span>Search</span>
+                </button>
+                <button class="btn btn-secondary" id="advanced-toggle-btn" title="Advanced Search Options">
+                    <svg class="icon"><use href="#icon-settings"></use></svg>
+                    <span>Filters</span>
+                </button>
+            </div>
+            <div class="filter-group">
+                <select id="filter-status">
+                    <option value="">Filter by Status</option>
+                    <option value="Saved">Saved</option>
+                    <option value="Pending">Pending</option>
+                </select>
+                <!-- <button class="btn btn-secondary btn-export"><svg class="icon">
+                        <use href="#icon-download"></use>
+                    </svg> Export Data</button>
+                <button class="btn btn-secondary btn-config" aria-label="Configure"><svg class="icon">
+                        <use href="#icon-settings"></use>
+                    </svg></button> -->
+            </div>
+        </div>
+
+        <div class="advanced-filters-panel" id="advanced-panel">
+            <div class="advanced-panel-grid">
+                <div class="form-group">
+                    <label for="filter-student-id">Student ID</label>
+                    <input type="text" id="filter-student-id" placeholder="e.g. 19010010001">
+                </div>
+                <div class="form-group">
+                    <label for="filter-fullname">Full Name</label>
+                    <input type="text" id="filter-fullname" placeholder="e.g. Leslie Alexander">
+                </div>
+                <div class="form-group">
+                    <label>GPA Range</label>
+                    <div class="range-inputs">
+                        <input type="number" id="filter-gpa-min" placeholder="Min (0.00)" min="0" max="4" step="0.01">
+                        <span class="range-separator">to</span>
+                        <input type="number" id="filter-gpa-max" placeholder="Max (4.00)" min="0" max="4" step="0.01">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Entry Date Range</label>
+                    <div class="range-inputs">
+                        <input type="date" id="filter-entry-start">
+                        <span class="range-separator">to</span>
+                        <input type="date" id="filter-entry-end">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Graduation Date Range</label>
+                    <div class="range-inputs">
+                        <input type="date" id="filter-grad-start">
+                        <span class="range-separator">to</span>
+                        <input type="date" id="filter-grad-end">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="filter-match-mode">Search Mode</label>
+                    <select id="filter-match-mode">
+                        <option value="all">Contains All Words (AND)</option>
+                        <option value="any" selected>Contains Any Word/Num (OR)</option>
+                        <option value="exact">Exact Phrase Match</option>
+                    </select>
+                </div>
+            </div>
+            <div class="advanced-panel-footer">
+                <button class="btn btn-secondary btn-sm" id="clear-filters-btn">Clear All</button>
+                <button class="btn btn-primary btn-sm" id="apply-filters-btn">Apply Filters</button>
+            </div>
+        </div>
+
+        <div class="active-filters-bar" id="active-filters-bar" style="display: none;">
+            <span class="active-filters-label">Active Filters:</span>
+            <div class="active-filters-list" id="active-filters-list"></div>
+            <button class="clear-all-link" id="clear-all-link">Clear All</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"><input type="checkbox"></th>
+                        <th>Student Id <span class="sort-icon"><svg class="icon icon-xs">
+                                    <use href="#icon-chevrons-up-down"></use>
+                                </svg></span></th>
+                        <th>Fullname <span class="sort-icon"><svg class="icon icon-xs">
+                                    <use href="#icon-chevrons-up-down"></use>
+                                </svg></span></th>
+                        <th>Graduation Date <span class="sort-icon"><svg class="icon icon-xs">
+                                    <use href="#icon-chevrons-up-down"></use>
+                                </svg></span></th>
+                        <th>Date of Entry <span class="sort-icon"><svg class="icon icon-xs">
+                                    <use href="#icon-chevrons-up-down"></use>
+                                </svg></span></th>
+                        <th>Duration <span class="sort-icon"><svg class="icon icon-xs">
+                                    <use href="#icon-chevrons-up-down"></use>
+                                </svg></span></th>
+                        <th>GPA <span class="sort-icon"><svg class="icon icon-xs">
+                                    <use href="#icon-chevrons-up-down"></use>
+                                </svg></span></th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="alumni-table-body">
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>19010010001</td>
+                        <td class="row-name">Leslie Alexander</td>
+                        <td>31-07-2024</td>
+                        <td>16-09-2019</td>
+                        <td>4 years 10 months</td>
+                        <td>3,32</td>
+                        <td><span class="badge badge-saved"><svg class="icon icon-xs badge-icon">
+                                    <use href="#icon-check"></use>
+                                </svg>Saved</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn act-view" title="View"><svg class="icon">
+                                    <use href="#icon-eye"></use>
+                                </svg></button>
+                            <button class="action-btn act-edit" title="Edit"><svg class="icon">
+                                    <use href="#icon-pencil"></use>
+                                </svg></button>
+                            <button class="action-btn act-delete" title="Delete"><svg class="icon">
+                                    <use href="#icon-trash"></use>
+                                </svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>19010010002</td>
+                        <td class="row-name">Robert Fox</td>
+                        <td>31-07-2024</td>
+                        <td>16-09-2019</td>
+                        <td>4 years 10 months</td>
+                        <td>3,33</td>
+                        <td><span class="badge badge-saved"><svg class="icon icon-xs badge-icon">
+                                    <use href="#icon-check"></use>
+                                </svg>Saved</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn act-view" title="View"><svg class="icon">
+                                    <use href="#icon-eye"></use>
+                                </svg></button>
+                            <button class="action-btn act-edit" title="Edit"><svg class="icon">
+                                    <use href="#icon-pencil"></use>
+                                </svg></button>
+                            <button class="action-btn act-delete" title="Delete"><svg class="icon">
+                                    <use href="#icon-trash"></use>
+                                </svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>19010010003</td>
+                        <td class="row-name">Robert Fox</td>
+                        <td>31-07-2024</td>
+                        <td>16-09-2019</td>
+                        <td>4 years 10 months</td>
+                        <td>3,34</td>
+                        <td><span class="badge badge-saved"><svg class="icon icon-xs badge-icon">
+                                    <use href="#icon-check"></use>
+                                </svg>Saved</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn act-view" title="View"><svg class="icon">
+                                    <use href="#icon-eye"></use>
+                                </svg></button>
+                            <button class="action-btn act-edit" title="Edit"><svg class="icon">
+                                    <use href="#icon-pencil"></use>
+                                </svg></button>
+                            <button class="action-btn act-delete" title="Delete"><svg class="icon">
+                                    <use href="#icon-trash"></use>
+                                </svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>19010010004</td>
+                        <td class="row-name">Bessie Cooper</td>
+                        <td>31-07-2024</td>
+                        <td>16-09-2019</td>
+                        <td>4 years 10 months</td>
+                        <td>3,35</td>
+                        <td><span class="badge badge-saved"><svg class="icon icon-xs badge-icon">
+                                    <use href="#icon-check"></use>
+                                </svg>Saved</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn act-view" title="View"><svg class="icon">
+                                    <use href="#icon-eye"></use>
+                                </svg></button>
+                            <button class="action-btn act-edit" title="Edit"><svg class="icon">
+                                    <use href="#icon-pencil"></use>
+                                </svg></button>
+                            <button class="action-btn act-delete" title="Delete"><svg class="icon">
+                                    <use href="#icon-trash"></use>
+                                </svg></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>19010010005</td>
+                        <td class="row-name">Annette Black</td>
+                        <td>31-07-2024</td>
+                        <td>16-09-2019</td>
+                        <td>4 years 10 months</td>
+                        <td>3,36</td>
+                        <td><span class="badge badge-saved"><svg class="icon icon-xs badge-icon">
+                                    <use href="#icon-check"></use>
+                                </svg>Saved</span></td>
+                        <td class="actions-cell">
+                            <button class="action-btn act-view" title="View"><svg class="icon">
+                                    <use href="#icon-eye"></use>
+                                </svg></button>
+                            <button class="action-btn act-edit" title="Edit"><svg class="icon">
+                                    <use href="#icon-pencil"></use>
+                                </svg></button>
+                        </td>
+                    </tr>
+                    <tr id="no-results-row" style="display: none;">
+                        <td colspan="9" class="no-results-cell">
+                            <div class="no-results-content">
+                                <svg class="icon icon-xl no-results-icon">
+                                    <use href="#icon-search"></use>
+                                </svg>
+                                <h3>No records found</h3>
+                                <p>We couldn't find any records matching your search or filters.</p>
+                                <button class="btn btn-secondary btn-sm" id="reset-no-results-btn">Reset All Filters</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="pagination-bar">
+            <div>1 - 5 of 100</div>
+            <div class="pagination-right">
+                <div class="rows-per-page">
+                    <span>Rows per page:</span>
+                    <select class="select-pagination">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                </div>
+                <div class="pages-links">
+                    <a class="page-node disabled" aria-label="Previous Page"><svg class="icon">
+                            <use href="#icon-chevron-left"></use>
+                        </svg></a>
+                    <a class="page-node active">1</a>
+                    <a class="page-node">2</a>
+                    <a class="page-node">3</a>
+                    <span class="pagination-ellipsis">...</span>
+                    <a class="page-node">9</a>
+                    <a class="page-node">10</a>
+                    <a class="page-node" aria-label="Next Page"><svg class="icon">
+                            <use href="#icon-chevron-right"></use>
+                        </svg></a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Add Alumni Modal -->
+    <div class="modal-overlay" id="alumni-modal" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>Add New Alumni</h2>
+                <button class="modal-close-btn" id="close-modal-x" aria-label="Close modal">
+                    <svg class="icon">
+                        <use href="#icon-plus" style="transform: rotate(45deg); transform-origin: center;"></use>
+                    </svg>
+                </button>
+            </div>
+            <form id="add-alumni-form">
+                <div class="modal-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="student-id">Student ID</label>
+                            <input type="text" id="student-id" placeholder="e.g. 19010010006" required
+                                pattern="^[0-9]{11}$" title="Please enter an 11-digit Student ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" placeholder="e.g. Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date-entry">Date of Entry</label>
+                            <input type="date" id="date-entry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date-graduation">Graduation Date</label>
+                            <input type="date" id="date-graduation" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="duration">Duration</label>
+                            <input type="text" id="duration" placeholder="Auto-calculated from dates" readonly
+                                class="readonly-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="gpa">GPA</label>
+                            <input type="number" id="gpa" placeholder="e.g. 3.85" step="0.01" min="0.00" max="4.00"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status" required>
+                                <option value="Saved">Saved</option>
+                                <option value="Pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="close-modal-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Alumni</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Alumni Details Modal -->
+    <div class="modal-overlay" id="view-modal" aria-hidden="true">
+        <div class="view-card">
+            <button class="modal-close-btn view-close-x" id="close-view-x" aria-label="Close modal">
+                <svg class="icon">
+                    <use href="#icon-plus" style="transform: rotate(45deg); transform-origin: center;"></use>
+                </svg>
+            </button>
+            <div class="view-profile-sidebar">
+                <div class="view-avatar" id="view-avatar-initials">JS</div>
+                <h3 id="view-fullname">Jane Doe</h3>
+                <span class="badge" id="view-status-badge"><svg class="icon icon-xs badge-icon">
+                        <use href="#icon-check"></use>
+                    </svg><span id="view-status-text">Saved</span></span>
+            </div>
+            <div class="view-details-content">
+                <h2 class="view-title">Alumni Profile</h2>
+                <div class="view-grid">
+                    <div class="view-group">
+                        <span class="view-label">Student ID</span>
+                        <span class="view-value" id="view-student-id">19010010001</span>
+                    </div>
+                    <div class="view-group">
+                        <span class="view-label">GPA Score</span>
+                        <div class="view-gpa-container">
+                            <span class="view-value" id="view-gpa">3,85</span>
+                            <div class="gpa-bar-track">
+                                <div class="gpa-bar-fill" id="view-gpa-fill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-group">
+                        <span class="view-label">Date of Entry</span>
+                        <span class="view-value" id="view-date-entry">16-09-2019</span>
+                    </div>
+                    <div class="view-group">
+                        <span class="view-label">Graduation Date</span>
+                        <span class="view-value" id="view-date-graduation">31-07-2024</span>
+                    </div>
+                    <div class="view-group full-width">
+                        <span class="view-label">Duration of Study</span>
+                        <span class="view-value" id="view-duration">4 years 10 months</span>
+                    </div>
+                </div>
+                <div class="view-footer">
+                    <button class="btn btn-secondary" id="close-view-btn">Close Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script>
+        // Theme Management (Dark Mode)
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIconUse = themeToggle.querySelector('use');
+
+        function applyTheme(dark) {
+            if (dark) {
+                document.body.classList.add('dark');
+                themeIconUse.setAttribute('href', '#icon-sun');
+            } else {
+                document.body.classList.remove('dark');
+                themeIconUse.setAttribute('href', '#icon-moon');
+            }
+        }
+
+        // Immediately apply saved theme preference
+        applyTheme(localStorage.getItem('theme') === 'dark');
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.contains('dark');
+            const nextDark = !isDark;
+            applyTheme(nextDark);
+            localStorage.setItem('theme', nextDark ? 'dark' : 'light');
+            showToast(nextDark ? 'Switched to Dark Mode 🌙' : 'Switched to Light Mode ☀️');
+        });
+
+        // Modal Selectors
+        const modal = document.getElementById('alumni-modal');
+        const openBtn = document.getElementById('add-alumni-btn');
+        const closeBtnX = document.getElementById('close-modal-x');
+        const closeBtnCancel = document.getElementById('close-modal-btn');
+        const alumniForm = document.getElementById('add-alumni-form');
+        const tableBody = document.getElementById('alumni-table-body');
+        const toastContainer = document.getElementById('toast-container');
+        const dateEntry = document.getElementById('date-entry');
+        const dateGraduation = document.getElementById('date-graduation');
+        const durationInput = document.getElementById('duration');
+
+        // View Modal Selectors
+        const viewModal = document.getElementById('view-modal');
+        const closeViewX = document.getElementById('close-view-x');
+        const closeViewBtn = document.getElementById('close-view-btn');
+
+        const viewAvatar = document.getElementById('view-avatar-initials');
+        const viewFullname = document.getElementById('view-fullname');
+        const viewStatusText = document.getElementById('view-status-text');
+        const viewStatusBadge = document.getElementById('view-status-badge');
+        const viewStudentId = document.getElementById('view-student-id');
+        const viewGpa = document.getElementById('view-gpa');
+        const viewGpaFill = document.getElementById('view-gpa-fill');
+        const viewDateEntry = document.getElementById('view-date-entry');
+        const viewDateGraduation = document.getElementById('view-date-graduation');
+        const viewDuration = document.getElementById('view-duration');
+
+        // Toggle Modal Functions
+        function openModal() {
+            modal.classList.add('show');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Reset and Close
+        function closeModal() {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            alumniForm.reset();
+        }
+
+        // Toggle View Modal Functions
+        function closeViewModal() {
+            viewModal.classList.remove('show');
+            viewModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            viewGpaFill.style.width = '0%'; // Reset progress bar width
+        }
+
+        // Event Listeners for Modal
+        openBtn.addEventListener('click', openModal);
+        closeBtnX.addEventListener('click', closeModal);
+        closeBtnCancel.addEventListener('click', closeModal);
+
+        // Event Listeners for View Modal
+        closeViewX.addEventListener('click', closeViewModal);
+        closeViewBtn.addEventListener('click', closeViewModal);
+
+        // Close on clicking overlay
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        viewModal.addEventListener('click', (e) => {
+            if (e.target === viewModal) {
+                closeViewModal();
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modal.classList.contains('show')) closeModal();
+                if (viewModal.classList.contains('show')) closeViewModal();
+            }
+        });
+
+        // Auto-calculate Duration
+        function calculateDuration() {
+            const entryVal = dateEntry.value;
+            const gradVal = dateGraduation.value;
+            if (!entryVal || !gradVal) {
+                durationInput.value = '';
+                return;
+            }
+
+            const entryDate = new Date(entryVal);
+            const gradDate = new Date(gradVal);
+
+            if (gradDate < entryDate) {
+                durationInput.value = "Graduation date cannot be before entry date";
+                return;
+            }
+
+            let years = gradDate.getFullYear() - entryDate.getFullYear();
+            let months = gradDate.getMonth() - entryDate.getMonth();
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            let durationParts = [];
+            if (years > 0) {
+                durationParts.push(`${years} year${years > 1 ? 's' : ''}`);
+            }
+            if (months > 0) {
+                durationParts.push(`${months} month${months > 1 ? 's' : ''}`);
+            }
+
+            durationInput.value = durationParts.length > 0 ? durationParts.join(' ') : '0 months';
+        }
+
+        dateEntry.addEventListener('change', calculateDuration);
+        dateGraduation.addEventListener('change', calculateDuration);
+
+        // Date formatter (YYYY-MM-DD to DD-MM-YYYY)
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const [year, month, day] = dateStr.split('-');
+            return `${day}-${month}-${year}`;
+        }
+
+        // Show Toast Function
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            if (type === 'error') {
+                toast.style.borderLeftColor = 'var(--danger-red)';
+            }
+            toast.textContent = message;
+            toastContainer.appendChild(toast);
+
+            // Animate in
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            // Remove Toast
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Form Submit
+        alumniForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const studentId = document.getElementById('student-id').value;
+            const fullname = document.getElementById('fullname').value;
+            const entryVal = dateEntry.value;
+            const gradVal = dateGraduation.value;
+            const duration = durationInput.value;
+            const gpaVal = document.getElementById('gpa').value;
+            const status = document.getElementById('status').value;
+
+            // Date validation check
+            if (new Date(gradVal) < new Date(entryVal)) {
+                showToast("Invalid date ranges. Please check entry and graduation dates.", "error");
+                return;
+            }
+
+            // GPA Format
+            const gpaFormatted = parseFloat(gpaVal).toFixed(2).replace('.', ',');
+
+            // Create new table row
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><input type="checkbox"></td>
+                <td>${studentId}</td>
+                <td class="row-name">${fullname}</td>
+                <td>${formatDate(gradVal)}</td>
+                <td>${formatDate(entryVal)}</td>
+                <td>${duration}</td>
+                <td>${gpaFormatted}</td>
+                <td><span class="badge badge-${status.toLowerCase()}"><svg class="icon icon-xs badge-icon"><use href="#icon-check"></use></svg>${status}</span></td>
+                <td class="actions-cell">
+                    <button class="action-btn act-view" title="View"><svg class="icon"><use href="#icon-eye"></use></svg></button>
+                    <button class="action-btn act-edit" title="Edit"><svg class="icon"><use href="#icon-pencil"></use></svg></button>
+                    <button class="action-btn act-delete" title="Delete"><svg class="icon"><use href="#icon-trash"></use></svg></button>
+                </td>
+            `;
+
+            tableBody.appendChild(tr);
+
+            // Close Modal
+            closeModal();
+
+            // Notify User
+            showToast(`Alumni "${fullname}" successfully added!`);
+        });
+
+        // Event delegation for table action buttons (including newly added rows)
+        tableBody.addEventListener('click', (e) => {
+            const btn = e.target.closest('.action-btn');
+            if (!btn) return;
+
+            const row = btn.closest('tr');
+            const fullname = row.querySelector('.row-name').textContent;
+
+            if (btn.classList.contains('act-delete')) {
+                if (confirm(`Are you sure you want to delete the record for ${fullname}?`)) {
+                    row.remove();
+                    showToast(`Alumni record for "${fullname}" deleted successfully!`);
+                }
+            } else if (btn.classList.contains('act-view')) {
+                // Extract details from the row
+                const cells = row.getElementsByTagName('td');
+                const studentId = cells[1].textContent;
+                const name = cells[2].textContent;
+                const gradDate = cells[3].textContent;
+                const entryDate = cells[4].textContent;
+                const duration = cells[5].textContent;
+                const gpa = cells[6].textContent;
+                const status = row.querySelector('.badge').textContent.trim();
+
+                // Compute Initials
+                const names = name.trim().split(/\s+/);
+                const initials = names.map(n => n[0]).join('').slice(0, 2).toUpperCase();
+
+                // Calculate GPA percentage
+                const gpaFloat = parseFloat(gpa.replace(',', '.'));
+                const gpaPercent = Math.min(Math.max((gpaFloat / 4.0) * 100, 0), 100);
+
+                // Bind content
+                viewAvatar.textContent = initials;
+                viewFullname.textContent = name;
+                viewStatusText.textContent = status;
+                viewStudentId.textContent = studentId;
+                viewGpa.textContent = gpa;
+                viewDateEntry.textContent = entryDate;
+                viewDateGraduation.textContent = gradDate;
+                viewDuration.textContent = duration;
+
+                // Sync status badge appearance
+                viewStatusBadge.className = `badge badge-${status.toLowerCase()}`;
+                viewStatusBadge.style.backgroundColor = '';
+                viewStatusBadge.style.color = '';
+
+                // Show modal
+                viewModal.classList.add('show');
+                viewModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+
+                // Animate GPA progress bar
+                setTimeout(() => {
+                    viewGpaFill.style.width = `${gpaPercent}%`;
+                }, 100);
+            } else if (btn.classList.contains('act-edit')) {
+                showToast(`Editing details for "${fullname}"`);
+            }
+        });
+
+        // ============================================================
+        //  ADVANCED SEARCH & FILTER SYSTEM
+        // ============================================================
+
+        const searchInput        = document.getElementById('search-input');
+        const searchBtn          = document.getElementById('search-btn');
+        const advancedToggleBtn  = document.getElementById('advanced-toggle-btn');
+        const advancedPanel      = document.getElementById('advanced-panel');
+        const applyFiltersBtn    = document.getElementById('apply-filters-btn');
+        const clearFiltersBtn    = document.getElementById('clear-filters-btn');
+        const filterStatusSelect = document.getElementById('filter-status');
+        const activeFiltersBar   = document.getElementById('active-filters-bar');
+        const activeFiltersList  = document.getElementById('active-filters-list');
+        const clearAllLink       = document.getElementById('clear-all-link');
+        const noResultsRow       = document.getElementById('no-results-row');
+        const resetNoResultsBtn  = document.getElementById('reset-no-results-btn');
+
+        // Advanced panel field refs
+        const fStudentId  = document.getElementById('filter-student-id');
+        const fFullname   = document.getElementById('filter-fullname');
+        const fGpaMin     = document.getElementById('filter-gpa-min');
+        const fGpaMax     = document.getElementById('filter-gpa-max');
+        const fEntryStart = document.getElementById('filter-entry-start');
+        const fEntryEnd   = document.getElementById('filter-entry-end');
+        const fGradStart  = document.getElementById('filter-grad-start');
+        const fGradEnd    = document.getElementById('filter-grad-end');
+        const fMatchMode  = document.getElementById('filter-match-mode');
+
+        // ---- Toggle Advanced Panel ----
+        advancedToggleBtn.addEventListener('click', () => {
+            const isOpen = advancedPanel.classList.toggle('show');
+            advancedToggleBtn.classList.toggle('btn-primary', isOpen);
+            advancedToggleBtn.classList.toggle('btn-secondary', !isOpen);
+        });
+
+        // ---- Helper: parse DD-MM-YYYY -> Date ----
+        function parseDisplayDate(str) {
+            if (!str || !str.trim()) return null;
+            const parts = str.trim().split('-');
+            if (parts.length !== 3) return null;
+            // format is DD-MM-YYYY
+            const [d, m, y] = parts;
+            return new Date(`${y}-${m}-${d}`);
+        }
+
+        // ---- Helper: parse YYYY-MM-DD input -> Date ----
+        function parseInputDate(str) {
+            if (!str) return null;
+            return new Date(str);
+        }
+
+        // ---- Main Filter Engine ----
+        function applyAllFilters() {
+            const query      = searchInput.value.trim().toLowerCase();
+            const matchMode  = fMatchMode.value;  // 'any' | 'all' | 'exact'
+            const statusVal  = filterStatusSelect.value.toLowerCase();
+
+            // Advanced field values
+            const advStudentId  = fStudentId.value.trim().toLowerCase();
+            const advFullname   = fFullname.value.trim().toLowerCase();
+            const advGpaMin     = fGpaMin.value !== '' ? parseFloat(fGpaMin.value) : null;
+            const advGpaMax     = fGpaMax.value !== '' ? parseFloat(fGpaMax.value) : null;
+            const advEntryStart = parseInputDate(fEntryStart.value);
+            const advEntryEnd   = parseInputDate(fEntryEnd.value);
+            const advGradStart  = parseInputDate(fGradStart.value);
+            const advGradEnd    = parseInputDate(fGradEnd.value);
+
+            // Split query into tokens
+            const tokens = query ? query.split(/\s+/).filter(Boolean) : [];
+
+            const rows = tableBody.querySelectorAll('tr:not(#no-results-row)');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                if (!cells.length) return;
+
+                const cellStudentId = cells[1].textContent.trim();
+                const cellName      = cells[2].textContent.trim();
+                const cellGradDate  = cells[3].textContent.trim();
+                const cellEntryDate = cells[4].textContent.trim();
+                const cellGpa       = cells[6].textContent.trim();
+                const cellStatus    = row.querySelector('.badge') ? row.querySelector('.badge').textContent.trim().toLowerCase() : '';
+
+                // Full row text for general search
+                const rowText = Array.from(cells).map(c => c.textContent).join(' ').toLowerCase();
+
+                // 1. General search query
+                let queryMatch = true;
+                if (tokens.length > 0) {
+                    if (matchMode === 'exact') {
+                        queryMatch = rowText.includes(query);
+                    } else if (matchMode === 'all') {
+                        queryMatch = tokens.every(t => rowText.includes(t));
+                    } else { // 'any'
+                        queryMatch = tokens.some(t => rowText.includes(t));
+                    }
+                }
+
+                // 2. Status dropdown
+                let statusMatch = true;
+                if (statusVal) {
+                    statusMatch = cellStatus === statusVal.toLowerCase();
+                }
+
+                // 3. Advanced: Student ID
+                let advIdMatch = true;
+                if (advStudentId) {
+                    advIdMatch = cellStudentId.toLowerCase().includes(advStudentId);
+                }
+
+                // 4. Advanced: Full Name
+                let advNameMatch = true;
+                if (advFullname) {
+                    advNameMatch = cellName.toLowerCase().includes(advFullname);
+                }
+
+                // 5. Advanced: GPA range
+                let advGpaMatch = true;
+                if (advGpaMin !== null || advGpaMax !== null) {
+                    const gpaNum = parseFloat(cellGpa.replace(',', '.'));
+                    if (!isNaN(gpaNum)) {
+                        if (advGpaMin !== null && gpaNum < advGpaMin) advGpaMatch = false;
+                        if (advGpaMax !== null && gpaNum > advGpaMax) advGpaMatch = false;
+                    } else {
+                        advGpaMatch = false;
+                    }
+                }
+
+                // 6. Advanced: Entry date range
+                let advEntryMatch = true;
+                if (advEntryStart || advEntryEnd) {
+                    const entryDate = parseDisplayDate(cellEntryDate);
+                    if (entryDate) {
+                        if (advEntryStart && entryDate < advEntryStart) advEntryMatch = false;
+                        if (advEntryEnd   && entryDate > advEntryEnd)   advEntryMatch = false;
+                    } else {
+                        advEntryMatch = false;
+                    }
+                }
+
+                // 7. Advanced: Graduation date range
+                let advGradMatch = true;
+                if (advGradStart || advGradEnd) {
+                    const gradDate = parseDisplayDate(cellGradDate);
+                    if (gradDate) {
+                        if (advGradStart && gradDate < advGradStart) advGradMatch = false;
+                        if (advGradEnd   && gradDate > advGradEnd)   advGradMatch = false;
+                    } else {
+                        advGradMatch = false;
+                    }
+                }
+
+                const visible = queryMatch && statusMatch && advIdMatch && advNameMatch
+                              && advGpaMatch && advEntryMatch && advGradMatch;
+
+                row.style.display = visible ? '' : 'none';
+                if (visible) visibleCount++;
+            });
+
+            // Show / hide no-results row
+            noResultsRow.style.display = visibleCount === 0 ? '' : 'none';
+
+            // Refresh active filter tags
+            renderActiveFilterTags();
+        }
+
+        // ---- Render Active Filter Badges ----
+        function renderActiveFilterTags() {
+            activeFiltersList.innerHTML = '';
+            const tags = [];
+
+            if (searchInput.value.trim())        tags.push({ label: `Search: "${searchInput.value.trim()}"`, clearFn: () => { searchInput.value = ''; applyAllFilters(); } });
+            if (filterStatusSelect.value)         tags.push({ label: `Status: ${filterStatusSelect.value}`, clearFn: () => { filterStatusSelect.value = ''; applyAllFilters(); } });
+            if (fStudentId.value.trim())          tags.push({ label: `ID: ${fStudentId.value.trim()}`, clearFn: () => { fStudentId.value = ''; applyAllFilters(); } });
+            if (fFullname.value.trim())           tags.push({ label: `Name: ${fFullname.value.trim()}`, clearFn: () => { fFullname.value = ''; applyAllFilters(); } });
+            if (fGpaMin.value !== '')             tags.push({ label: `GPA ≥ ${fGpaMin.value}`, clearFn: () => { fGpaMin.value = ''; applyAllFilters(); } });
+            if (fGpaMax.value !== '')             tags.push({ label: `GPA ≤ ${fGpaMax.value}`, clearFn: () => { fGpaMax.value = ''; applyAllFilters(); } });
+            if (fEntryStart.value)                tags.push({ label: `Entry from: ${fEntryStart.value}`, clearFn: () => { fEntryStart.value = ''; applyAllFilters(); } });
+            if (fEntryEnd.value)                  tags.push({ label: `Entry to: ${fEntryEnd.value}`, clearFn: () => { fEntryEnd.value = ''; applyAllFilters(); } });
+            if (fGradStart.value)                 tags.push({ label: `Grad from: ${fGradStart.value}`, clearFn: () => { fGradStart.value = ''; applyAllFilters(); } });
+            if (fGradEnd.value)                   tags.push({ label: `Grad to: ${fGradEnd.value}`, clearFn: () => { fGradEnd.value = ''; applyAllFilters(); } });
+
+            if (tags.length > 0) {
+                tags.forEach(tag => {
+                    const badge = document.createElement('span');
+                    badge.className = 'filter-badge';
+                    badge.innerHTML = `${tag.label} <button class="filter-badge-remove" title="Remove filter">✕</button>`;
+                    badge.querySelector('.filter-badge-remove').addEventListener('click', tag.clearFn);
+                    activeFiltersList.appendChild(badge);
+                });
+                activeFiltersBar.style.display = 'flex';
+            } else {
+                activeFiltersBar.style.display = 'none';
+            }
+        }
+
+        // ---- Clear All Filters ----
+        function clearAllFilters() {
+            searchInput.value      = '';
+            filterStatusSelect.value = '';
+            fStudentId.value       = '';
+            fFullname.value        = '';
+            fGpaMin.value          = '';
+            fGpaMax.value          = '';
+            fEntryStart.value      = '';
+            fEntryEnd.value        = '';
+            fGradStart.value       = '';
+            fGradEnd.value         = '';
+            applyAllFilters();
+        }
+
+        // ---- Event Listeners ----
+
+        // Search button click
+        searchBtn.addEventListener('click', applyAllFilters);
+
+        // Enter key on search input
+        searchInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') applyAllFilters();
+        });
+
+        // Live filtering as user types (debounced 300ms)
+        let debounceTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(applyAllFilters, 300);
+        });
+
+        // Status dropdown — apply immediately
+        filterStatusSelect.addEventListener('change', applyAllFilters);
+
+        // Apply / Clear buttons inside panel
+        applyFiltersBtn.addEventListener('click', applyAllFilters);
+        clearFiltersBtn.addEventListener('click', clearAllFilters);
+
+        // Clear all button in active tags bar
+        clearAllLink.addEventListener('click', clearAllFilters);
+
+        // Reset button inside no-results row
+        resetNoResultsBtn.addEventListener('click', clearAllFilters);
+
+    </script>
+
+</body>
+
+</html>

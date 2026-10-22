@@ -1,0 +1,9 @@
+{
+  "name": "my-crud-app",
+  "version": "1.0.0",
+  "description": "My CRUD Desktop App",
+  "author": "Developer",
+  "private": true,
+  "type": "module",
+  "main": "desktop/main.cjs"
+}

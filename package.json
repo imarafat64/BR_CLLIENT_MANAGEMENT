@@ -1,0 +1,63 @@
+{
+    "name": "my-crud-app",
+    "version": "1.0.0",
+    "description": "My CRUD Desktop App",
+    "author": "Developer",
+    "private": true,
+    "type": "module",
+    "main": "desktop/main.cjs",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "electron:prep": "node desktop/scripts/prep-codesign.cjs",
+        "electron:icons": "node desktop/scripts/install-icons.cjs",
+        "electron:start": "electron .",
+        "electron:build": "electron-builder --win"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "@tailwindcss/vite": "^4.0.0",
+        "axios": "^1.7.4",
+        "bootstrap": "^5.2.3",
+        "concurrently": "^9.0.1",
+        "electron": "22.3.27",
+        "electron-builder": "^24.13.3",
+        "laravel-vite-plugin": "^1.2.0",
+        "png-to-ico": "^3.0.1",
+        "sass": "^1.56.1",
+        "tailwindcss": "^4.0.0",
+        "vite": "^6.0.11"
+    },
+    "build": {
+        "appId": "com.mycrud.app",
+        "productName": "MY CRUD",
+        "win": {
+            "target": "nsis",
+            "icon": "resources/app/app.ico"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "shortcutName": "MY CRUD"
+        },
+        "files": [
+            "app/**/*",
+            "bootstrap/**/*",
+            "config/**/*",
+            "database/**/*",
+            "public/**/*",
+            "resources/**/*",
+            "routes/**/*",
+            "storage/**/*",
+            "vendor/**/*",
+            "artisan",
+            ".env.example",
+            "desktop/main.cjs",
+            "desktop/php/**/*",
+            "!node_modules/**"
+        ],
+        "asar": false
+    }
+}
